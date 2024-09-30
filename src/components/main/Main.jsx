@@ -1,8 +1,14 @@
-import { useContext } from "react";
-import { assets } from "../../assets/assets";
-import "./main.css";
-import { Context } from "../../context/Context";
+import { useContext } from "react"; // Importing useContext hook from React
+
+import { assets } from "../../assets/assets"; // Importing assets like icons from a specific path
+
+import "./main.css"; // Importing the CSS file for styling the Main component
+
+import { Context } from "../../context/Context"; // Importing the Context for state management
+
 const Main = () => {
+	    // useContext hook to get functions and values from Context
+
 	const {
 		onSent,
 		recentPrompt,
@@ -13,8 +19,11 @@ const Main = () => {
 		input,
 	} = useContext(Context);
 
+	    // Handle clicking on a card
+
     const handleCardClick = (promptText) => {
-			setInput(promptText);
+			setInput(promptText); // Set input value to the prompt text
+
 		};
 	return (
 		<div className="main">
@@ -32,6 +41,8 @@ const Main = () => {
 							<p>How Can i Help You Today?</p>
 						</div>
 						<div className="cards">
+			{/* Predefined cards with example prompts */}
+				
 							<div
 								className="card"
 								onClick={() =>
@@ -99,7 +110,7 @@ const Main = () => {
 					<div className="search-box">
 						<input
 							onChange={(e) => {
-								setInput(e.target.value);
+								setInput(e.target.value);   // Update input value on change
 							}}
 							value={input}
 							type="text"
@@ -113,6 +124,9 @@ const Main = () => {
 								alt=""
 								onClick={() => {
 									onSent();
+
+	// Send the prompt when clicked
+	
 								}}
 							/>
 						</div>
@@ -129,4 +143,4 @@ const Main = () => {
 	);
 };
 
-export default Main;
+export default Main;  // Exporting the Main component as default
